@@ -18,10 +18,16 @@
 
 <div class="provider-buttons-logos">
   <div class="provider-logo">
-    <%- edx.StringUtils.interpolate("<img src='%s' alt='%s'></image>", [thumbnail_url, display_name]) %>
+    <%- edx.HtmlUtils.interpolateHtml(
+                edx.HtmlUtils.HTML('<img src="{thumbnailUrl}" alt="{displayName}"></image>'),
+                {thumbnailUrl:thumbnail_url ,displayName:display_name}
+                 )
+                 %>
   </div>
   <div class="complete-order">
-    <%- edx.StringUtils.interpolate('<button data-provider="%s" data-course-key="%s" data-username="%s" class="complete-course" onClick=completeOrder(this)>%s</button>', [id, course_key, username,
-        gettext( "Get Credit")]) %>
+    <%- edx.HtmlUtils.interpolateHtml(
+                edx.HtmlUtils.HTML('<button data-provider="{id}" data-course-key="{courseKey}" data-username="userName" class="complete-course" onClick=completeOrder(this)>{"credit"}</button>'),
+                {id:id, courseKey:course_key, userName:username, credit:gettext( "Get Credit")}
+        ) %>
   </div>
 </div>
