@@ -26,7 +26,7 @@
   </div>
   <div class="complete-order">
     <%- edx.HtmlUtils.interpolateHtml(
-                edx.HtmlUtils.HTML('<button data-provider="{id}" data-course-key="{courseKey}" data-username="userName" class="complete-course" onClick=completeOrder(this)>{"credit"}</button>'),
+                edx.HtmlUtils.HTML('<button data-provider="{id}" data-course-key="{courseKey}" data-username="{userName}" class="complete-course" onClick=completeOrder(this)>"{credit}"</button>'),
                 {id:id, courseKey:course_key, userName:username, credit:gettext( "Get Credit")}
         ) %>
   </div>
